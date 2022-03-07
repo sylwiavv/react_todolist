@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const InputAutoComplete = styled.input`
+export const Input = styled.input`
   border: 2px solid ${({ theme }) => theme.colors.black};
   border-radius: 4px;
   background-color: ${({ theme }) => theme.colors.lightGrey};

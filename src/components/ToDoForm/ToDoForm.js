@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputAutoComplete } from "../InputAutoComplete/InputAutoComplete.styles";
+import { Input } from "../Input/Input.styles";
 
 const ToDoForm = ({ addToDo }) => {
     const [value, setValue] = React.useState("");
@@ -14,14 +14,14 @@ const ToDoForm = ({ addToDo }) => {
     return (
         <>
             <form onSubmit={handleOnSubmit}>
-                <InputAutoComplete
+                <Input
                     id="input-todo"
                     type="text"
                     placeholder="Add your todo"
                     onChange={(e) => setValue(e.target.value)}
                     value={value}
                 >
-                </InputAutoComplete>
+                </Input>
             </form>
         </>
     );
