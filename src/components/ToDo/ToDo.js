@@ -3,12 +3,13 @@ import {Wrapper} from "../List/List.styles";
 import {WrapperLi} from "../ListItem/ListItem.styles";
 import ToDoForm from "../ToDoForm/ToDoForm";
 import ToDoRemove from "../ToDoRemove/ToDoRemove";
+import ToDoIsDone from "../ToDoIsDone/ToDoIsDone";
 
 const ToDo = () => {
     const [todos, setTodos] = React.useState([]);
 
     const addToDo = text => {
-        const newToDos = [ ...todos, { text }];
+        const newToDos = [ ...todos, { text, isCompleted: false }];
         setTodos(newToDos);
     }
 
@@ -19,11 +20,19 @@ const ToDo = () => {
                 {todos.map((todo, index) => (
                     <WrapperLi
                         className="item-todo"
-                        key={todo.text}
+                        key={index}
                         index={index}
                     >
+                        <ToDoIsDone
+                            todos={todos}
+                            isCompleted={false}
+                            index={index}
+                            setTodos={setTodos} />
                         {todo.text}
-                        <ToDoRemove todos={todos} index={index} setTodos={setTodos}/>
+                        <ToDoRemove
+                            todos={todos}
+                            setTodos={setTodos}
+                            index={index} />
                     </WrapperLi>
                 ))}
             </Wrapper>
